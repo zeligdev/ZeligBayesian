@@ -1,0 +1,25 @@
+Package: ZeligBayesian
+Maintainer: Matt Owen <mowen@iq.harvard.edu>
+License: GPL (>=2)
+Title: A Zelig Model
+Author: Matt Owen
+Description: A Zelig Model
+Version: 0.1
+Packaged: Tue Nov 1 12:02:53 2011
+URL: http://gking.harvard.edu/zelig
+Date: 2011-11-01
+Depends: Zelig (>= 4.0), MCMCpack
+Collate: 'describe.factor.bayes.R' 'describe.logit.bayes.R'
+    'describe.mlogit.bayes.R' 'describe.normal.bayes.R'
+    'describe.oprobit.bayes.R' 'describe.poisson.bayes.R'
+    'describe.probit.bayes.R' 'MCMChook.R' 'mcmcparam.R'
+    'param.factor.bayes.R' 'param.logit.bayes.R' 'param.mlogit.bayes.R'
+    'param.normal.bayes.R' 'param.oprobit.bayes.R'
+    'param.poisson.bayes.R' 'param.probit.bayes.R'
+    'print.summary.MCMCZelig.R' 'qi.factor.bayes.R' 'qi.logit.bayes.R'
+    'qi.mlogit.bayes.R' 'qi.normal.bayes.R' 'qi.oprobit.bayes.R'
+    'qi.poisson.bayes.R' 'qi.probit.bayes.R' 'summary.MCMCZelig.R'
+    'zelig2factor.bayes.R' 'zelig2logit.bayes.R' 'zelig2mlogit.bayes.R'
+    'zelig2normal.bayes.R' 'zelig2oprobit.bayes.R'
+    'zelig2poisson.bayes.R' 'zelig2probit.bayes.R'
+    'ZeligBayesian-package.R'
