@@ -1,3 +1,22 @@
 ZeligBayesian
 
 Bayesian Generalized Linear Regressions for Zelig
+
+
+Major functions:
+ * mcmcparam - Simulates parameters for all bayesian models
+ * MCMCHook - Creates a "MCMCZelig" object that works with setx and sim
+
+Overloaded functions:
+ * print.summary.MCMCZelig
+ * summary.MCMCZelig
+
+
+zelig2 functions:
+  ...
+
+param functions:
+  ...
+
+qi functions:
+  ...
