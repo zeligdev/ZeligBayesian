@@ -7,7 +7,7 @@
 #' @export
 param.poisson.bayes <- function(obj, num=1000, ...) {
   list(
-       coef = NULL,
-       linkinv = NULL
+       coef = coef(obj),
+       fam = poisson()
        )
 }
