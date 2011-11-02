@@ -7,7 +7,7 @@
 #' @export
 param.normal.bayes <- function(obj, num=1000, ...) {
   list(
-       coef = NULL,
-       linkinv = NULL
+       coef = coef(obj),
+       linkinv = gaussian()
        )
 }

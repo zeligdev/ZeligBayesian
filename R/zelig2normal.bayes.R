@@ -5,10 +5,24 @@
 #' @param data a data.frame 
 #' @return a list specifying '.function'
 #' @export
-zelig2normal.bayes <- function (formula, ..., data) {
+zelig2normal.bayes <- function (
+                               formula, 
+                               burnin = 1000, mcmc = 10000, 
+                               verbose= 0, 
+                               ..., 
+                               data
+                               ) {
   list(
-       .function = "",
+       .function = "MCMCregress",
+       .hook = "MCMChook",
+
        formula = formula,
-       data = data
+       data   = data,
+       burnin = burnin,
+       mcmc   = mcmc,
+       verbose= verbose,
+
+       # Most parameters can be simply passed forward
+       ...
        )
 }
