@@ -7,6 +7,11 @@
 #' @param ... ignored parameters
 #' @return a list specifying link, link-inverse, random samples, and ancillary
 #' parameters
-#' @method param logit.bayes
+#' @S3method param logit.bayes
 #' @export
-param.logit.bayes <- mcmcparam
+param.logit.bayes <- function(obj, num=1000, ...) {
+  list(
+       coef = coef(obj),
+       fam  = binomial(link="logit")
+       )
+}

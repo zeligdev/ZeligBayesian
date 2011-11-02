@@ -8,4 +8,5 @@
 #' @return a list specifying link, link-inverse, random samples, and ancillary
 #' parameters
 #' @export
-param.factor.bayes <- NULL
+param.factor.bayes <- function (...) {
+}

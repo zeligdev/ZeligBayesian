@@ -1,6 +1,12 @@
 #' Interface between the Zelig Model logit.bayes and 
 #' the Pre-existing Model-fitting Method
 #' @param formula a formula
+#' @param burnin a parameter corresponding to the 'burnin' paramater for the
+#' MCMCprobit function
+#' @param mcmc a parameter corresponding to the 'mcmc' paramater for the
+#' MCMCprobit function
+#' @param verbose a parameter corresponding to the 'verbose' paramater for the
+#' MCMCprobit function
 #' @param ... additonal parameters
 #' @param data a data.frame 
 #' @return a list specifying '.function'
@@ -18,6 +24,7 @@ zelig2logit.bayes <- function (
   list(
        .function = "MCMClogit",
        .hook = "MCMChook",
+
        formula = formula,
        data   = data,
        burnin = burnin,

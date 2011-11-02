@@ -16,6 +16,9 @@ MCMChook <- function (obj, model.call, zelig.call, seed=NULL, ...)
   # Create a new object
   res <- list()
 
+  attr(obj, "call") <- NULL
+  class(obj) <- "matrix"
+
   # Add the bare necessities for a zelig object
   res$coefficients <- obj
   res$formula <- zelig.call$formula
@@ -33,8 +36,7 @@ MCMChook <- function (obj, model.call, zelig.call, seed=NULL, ...)
   else
     seed
 
-  attr(res$coefficients, "call") <- NULL
-  class(res) <- c(zelig.call$model, "MCMCZelig")
+  class(res) <- "mcmc-object"
 
   res
 }

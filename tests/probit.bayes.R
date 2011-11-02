@@ -4,7 +4,7 @@ data(turnout)
 
 z.out <- zelig(
                vote ~ race + educate,
-               model = "logit.bayes",
+               model = "probit.bayes",
                verbose = FALSE,
                data  = turnout
                )

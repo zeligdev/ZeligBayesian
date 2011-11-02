@@ -1,4 +1,5 @@
 #' Compute Quantities of Interest for the Zelig Model logit.bayes
+#' @S3method qi logit.bayes
 #' @param obj a zelig object
 #' @param x a setx object
 #' @param x1 an optional setx object
@@ -7,26 +8,44 @@
 #' @param param a parameters object
 #' @return a list of key-value pairs specifying pairing titles of quantities of
 #' interest with their simulations
-#' @export
 qi.logit.bayes <- function(obj, x=NULL, x1=NULL, y=NULL, num=1000, param=NULL) {
 
-  # Specify model name. This is likely unnecessary
-  model.name <- "logit.bayes"
+  # Use a Helper-Function that computes expected values and predicted values
+  # simultaneously.
+  res1 <- logit.ev(x, param)
+  res2 <- logit.ev(x1, param)
 
-  # Extract simulated parameters
-  coef <- coef(param)
-
-  # Produce the un-inversed mean values
-  eta <- coef %*% t(x)
-
-
-
-  message("Everything ended well.")
-  q()
-
-
-
+  # Return quantities of interest
   list(
-       "Expected Value: E(Y|X)" = NA
+       "Expected Value: E(Y|X)" = res1$ev,
+       "Predicted Value: Y|X" = res1$pv,
+       "Expected Value (for X1): E(Y|X1)" = res2$ev,
+       "Predicted Value (for X1): Y|X1" = res2$pv,
+       "First Differences: E(Y|X1)-E(Y|X)" = res2$ev - res1$ev
        )
+}
+
+logit.ev <- function (x, param) {
+  # If either of the parameters are invalid,
+  # Then return NA for both qi's
+  if (is.null(x) || is.na(x) || is.null(param))
+    return(list(ev=NA, pv=NA))
+
+  # Extract inverse-link and simulated parameters (respectively)
+  inv <- linkinv(param)
+  eta <- coef(param) %*% t(x)
+
+  # Give matrix identical rows/columns to the simulated parameters
+  ev <- pv <- matrix(NA, nrow(eta), ncol(eta))
+  dimnames(ev) <- dimnames(pv) <- dimnames(eta)
+
+  # Compute Expected Values
+  ev <- inv(eta)
+
+  # Compute Predicted Values
+  for (i in 1:ncol(ev)) 
+    pv[,i] <- as.character(rbinom(length(ev[,i]), 1, ev[,i])) 
+
+  # Return
+  list(ev=ev, pv=pv)
 }
