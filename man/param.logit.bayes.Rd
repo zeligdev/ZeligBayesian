@@ -1,6 +1,7 @@
 \name{param.logit.bayes}
 \alias{param.logit.bayes}
 \title{Simulate Parameters for the Bayesian Logistic Regression...}
+\usage{param.logit.bayes(obj, num=1000, ...)}
 \description{Simulate Parameters for the Bayesian Logistic Regression}
 \details{This method simulates parameters for the Bayesian Logistic Regression
 (logit.bayes).}
