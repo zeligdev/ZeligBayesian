@@ -7,7 +7,7 @@
 #' @export
 param.mlogit.bayes <- function(obj, num=1000, ...) {
   list(
-       coef = NULL,
+       coef = coef(obj),
        linkinv = NULL
        )
 }
