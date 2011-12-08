@@ -1,15 +1,13 @@
-#' Print Summarized MCMC-Zelig Objects
-#' 
-#' This function prints the summarized MCMC-Zelig objects
-#' @param x a \code{summary.MCMCZelig} object
-#' @param digits an integer specifying the precision of decimal numbers
+#' Print a Summary MCMCZelig Object
+#'
+#' This method prints a summary object for \code{MCMCZelig} objects
+#' @param object an "MCMCZelig" object
+#' @param digits a numeric specifying the precision of the summary object
 #' @param ... ignored parameters
-#' @return Nothing
+#' @return a \code{summary.MCMCZelig} object
 #' @S3method print summary.MCMCZelig
-print.summary.MCMCZelig <- function(x,
-                                    digits=max(3, getOption("digits") - 3),
-                                    ...)
-{
+print.summary.MCMCZelig <- function(x, digits=max(3, getOption("digits") - 
+3), ...) {
   cat("\nCall: ") 
   print(x$call) 
   cat("\n", "Iterations = ", x$start, ":", x$end, "\n", sep = "")
@@ -17,12 +15,7 @@ print.summary.MCMCZelig <- function(x,
   cat("Number of chains =", x$nchain, "\n")
   cat("Sample size per chain =", (x$end -
   x$start)/x$thin + 1, "\n")
-  cat(
-      "\n", 
-      "Mean, standard deviation, and quantiles for marginal posterior",
-      " distributions.",
-      "\n"
-      )
+  cat("\n", "Mean, standard deviation, and quantiles for marginal posterior distributions.", "\n")
   print(round(x$summary, digits=digits))
   cat("\n")
 }

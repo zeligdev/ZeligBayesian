@@ -9,6 +9,8 @@ z.out <- zelig(
                data  = turnout
                )
 
+summary(z.out)
+
 x.out <- setx(z.out, age=65)
 x1.out <- setx(z.out, age=10, educate=5)
 

@@ -3,7 +3,9 @@
 \title{Simulate Parameters for the Bayesian Logistic Regression...}
 \usage{param.oprobit.bayes(obj, num=1000, ...)}
 \description{Simulate Parameters for the Bayesian Logistic Regression}
-\details{This method simulates parameters for the Bayesian Ordianal Probit Regression
+\note{Both the \code{param} and \code{sim} method for Bayesian regressions
+seem to ignore the \code{num} parameter.
+This method simulates parameters for the Bayesian Ordianal Probit Regression
 (oprobit.bayes).}
 \value{a list specifying link, link-inverse, random samples, and ancillary
 parameters}

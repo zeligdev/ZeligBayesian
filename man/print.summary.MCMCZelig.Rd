@@ -1,10 +1,10 @@
 \name{print.summary.MCMCZelig}
 \alias{print.summary.MCMCZelig}
-\title{Print Summarized MCMC-Zelig Objects...}
+\title{Print a Summary MCMCZelig Object...}
 \usage{print.summary.MCMCZelig(x, digits=max(3, getOption("digits") - 3), ...)}
-\description{Print Summarized MCMC-Zelig Objects}
-\details{This function prints the summarized MCMC-Zelig objects}
-\value{Nothing}
-\arguments{\item{x}{a \code{summary.MCMCZelig} object}
-\item{digits}{an integer specifying the precision of decimal numbers}
+\description{Print a Summary MCMCZelig Object}
+\details{This method prints a summary object for \code{MCMCZelig} objects}
+\value{a \code{summary.MCMCZelig} object}
+\arguments{\item{object}{an "MCMCZelig" object}
+\item{digits}{a numeric specifying the precision of the summary object}
 \item{...}{ignored parameters}}

@@ -3,8 +3,9 @@
 \title{Compute Quantities of Interest for the Zelig Model mlogit...}
 \usage{qi.mlogit.bayes(obj, x, x1, y, num=1000, param)}
 \description{Compute Quantities of Interest for the Zelig Model mlogit.bayes}
-\value{a list of key-value pairs specifying pairing titles of quantities of interest
-with their simulations}
+\details{!!!}
+\value{a list of key-value pairs specifying pairing titles of quantities of
+interest with their simulations}
 \arguments{\item{obj}{a zelig object}
 \item{x}{a setx object}
 \item{x1}{an optional setx object}

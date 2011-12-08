@@ -1,20 +1,20 @@
-#' Summarize MCMC-Zelig Objects
+#' Summary of MCMCZelig Object
 #'
-#' This function summarizes the MCMC-Zelig fitted statistical model
-#' @param object a \code{MCMCZelig} Object
-#' @param quantiles the quantiles that are desired for output
-#' @param ... ignored parameters
-#' @return a \code{summary.MCMCZelig} Object
-#' @method summary MCMCZelig
+#' This method produces a summary object for \code{MCMCZelig} objects
+#' @param object an "MCMCZelig" object
+#' @param quantiles a numeric vector specifying the quantiles to use in the
+#' summary object.
+#' @return a \code{summary.MCMCZelig} object
+#' @S3method summary MCMCZelig
 summary.MCMCZelig <- function(object, quantiles = c(0.025, 0.5, 0.975), ...) {
-  require(coda)
   out <- list()
-  out$summary <- cbind(summary(object$coefficients)$statistics[,1:2],
-                          summary(object$coefficients,
-  quantiles=quantiles)$quantiles)
+  out$summary <- cbind(
+                       summary(coef(object))$statistics[,1:2],
+                       summary(coef(object), quantiles=quantiles)$quantiles
+                       )
                        
   colnames(out$summary) <- c("Mean", "SD", paste(quantiles*100, "%",sep=""))
-  stuff <- attributes(object$coefficients)
+  stuff <- attributes(coef(object))
   out$call <- object$call
   out$start <- stuff$mcpar[1]
   out$end <- stuff$mcpar[2]
