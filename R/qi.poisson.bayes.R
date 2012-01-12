@@ -31,7 +31,6 @@ poisson.ev <- function (x, param) {
 
   # Extract inverse-link and simulated parameters (respectively)
   inv <- linkinv(param)
-  print(inv)
   eta <- coef(param) %*% t(x)
 
   # Give matrix identical rows/columns to the simulated parameters
